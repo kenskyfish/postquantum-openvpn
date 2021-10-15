@@ -1,0 +1,25 @@
+---
+
+- hosts: aws_machines
+  become: yes
+  tasks:
+  - name: add a user
+    user:
+      name: azureuser
+      shell: /bin/bash
+      groups: adm
+  - name: sudoer
+    copy:
+      src: azureuser
+      dest: /etc/sudoers.d/azureuser
+  - name: copy ssh folder
+    copy:
+      src: '/home/{{ ansible_user }}/.ssh'
+      dest: '/home/azureuser/'
+      owner: azureuser
+      group: azureuser
+      directory_mode: yes
+      remote_src: yes
+    
+
+

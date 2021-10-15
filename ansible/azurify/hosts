@@ -1,0 +1,7 @@
+[all:vars]
+ansible_connection=ssh
+ansible_user=ubuntu
+ansible_ssh_private_key_file=~/crypt/keys/postquantum.pem
+
+[aws_machines]
+172.19.45.204
