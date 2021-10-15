@@ -4,4 +4,3 @@ This folder should have after successful run:
   - tar.gz archive with PQ-capable openvpn binary and libcryto, libssl libraries (for Ubuntu 18)
 
 See ClientInstall.pdf for more information
-
