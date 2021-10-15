@@ -4,3 +4,4 @@
   args:
     chdir: ~/code/openvpn/build/
   become: no
+  no_log: yes
