@@ -1,0 +1,31 @@
+---
+- name: update all
+  apt: 
+    name: "*"
+    state: latest
+    update_cache: yes
+  when: ansible_distribution == "Ubuntu"
+
+- name: Update CAs
+  yum:
+    name : ca-certificates
+    state : latest
+
+- name: Install myriad useful tools
+  yum:
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
+    - p7zip-full
+    - wget
+    - zip
+    - unzip
+    - autossh
+    - pv
+    - htop
+    - sysstat
+    - figlet
+    - telnet
+    - coreutils
+  when: ansible_distribution == "Ubuntu"

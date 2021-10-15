@@ -1,0 +1,12 @@
+---
+- name: enable IP forwarding in /etc/sysctl.conf
+  lineinfile:
+    path: /etc/sysctl.conf
+    regexp: '^net.ipv4.ip_forward'
+    line: 'net.ipv4.ip_forward = 1'
+
+- name: enable IP forwarding now - without reboot
+  shell: echo 0 > /proc/sys/net/ipv4/ip_forward
+
+# NOTE: in Azure must also enable ip forwarding for network interface
+# NOTE: firewall rules to access whole subnet via this OpenVPN server also required
