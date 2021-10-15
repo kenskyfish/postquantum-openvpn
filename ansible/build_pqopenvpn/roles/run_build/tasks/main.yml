@@ -1,0 +1,6 @@
+---
+- name: run the build job
+  command: "script -c \"python ./build.py\" build_out.txt"
+  args:
+    chdir: ~/code/openvpn/build/
+  become: no

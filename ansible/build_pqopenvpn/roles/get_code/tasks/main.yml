@@ -1,0 +1,15 @@
+---
+- name: make code folder
+  file:
+    path: ~/code
+    state: directory
+  become: no
+
+# git clone --recurse-submodules https://github.com/microsoft/PQCrypto-VPN.git
+- name: clone the repository
+  git:
+    repo: "{{ pqcrypto_url }}"
+    dest: ~/code
+    clone: yes
+    recursive: yes
+  become: no

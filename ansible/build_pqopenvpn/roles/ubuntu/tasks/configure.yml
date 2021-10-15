@@ -1,0 +1,10 @@
+---
+- name: Set hostname
+  command: "hostnamectl --static set-hostname {{ hostname }}"
+
+- name: Set timezone
+  timezone:
+    name: "{{ time_zone }}"
+
+- name: Set locale
+  command: "localectl set-locale {{ locale }}"
